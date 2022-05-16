@@ -1,0 +1,15 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/fernanACM/BroadcastACM
+build-by-default: true
+branches:
+- PM4
+projects:
+  BroadcastACM:
+    path: ""
+    icon: icon-broadcastacm.png
+    libs:
+      - src: CortexPE/Commando/Commando
+        version:  ^3.0.0
+        branch: PM4
+    lint:
+      phpstan: false
+...

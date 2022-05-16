@@ -1,0 +1,76 @@
+#   ____                               _                        _        _       ____   __  __ 
+#  | __ )   _ __    ___     __ _    __| |   ___    __ _   ___  | |_     / \     / ___| |  \/  |
+#  |  _ \  | '__|  / _ \   / _` |  / _` |  / __|  / _` | / __| | __|   / _ \   | |     | |\/| |
+#  | |_) | | |    | (_) | | (_| | | (_| | | (__  | (_| | \__ \ | |_   / ___ \  | |___  | |  | |
+#  |____/  |_|     \___/   \__,_|  \__,_|  \___|  \__,_| |___/  \__| /_/   \_\  \____| |_|  |_|
+#        by fernanACM
+
+# The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily.
+# Here you can edit the general messages added by the plugin and others.
+
+# ======(KEYS)======
+# "{LINE}" => "\n",
+# "{NAME}" => $player->getName(),
+# Colors
+# "{BLACK}" => TextFormat::BLACK,
+# "{DARK_BLUE}" => TextFormat::DARK_BLUE,
+# "{DARK_GREEN}" => TextFormat::DARK_GREEN,
+# "{CYAN}" => TextFormat::DARK_AQUA,
+# "{DARK_RED}" => TextFormat::DARK_RED,
+# "{PURPLE}" => TextFormat::DARK_PURPLE,
+# "{GOLD}" => TextFormat::GOLD,
+# "{GRAY}" => TextFormat::GRAY,
+# "{DARK_GRAY}" => TextFormat::DARK_GRAY,
+# "{BLUE}" => TextFormat::BLUE,
+# "{GREEN}" => TextFormat::GREEN,
+# "{AQUA}" => TextFormat::AQUA,
+# "{RED}" => TextFormat::RED,
+# "{PINK}" => TextFormat::LIGHT_PURPLE,
+# "{YELLOW}" => TextFormat::YELLOW,
+# "{WHITE}" => TextFormat::WHITE,
+# "{ORANGE}" => "§6"
+# "{BOLD}" => TextFormat::BOLD,
+# "{RESET}" => TextFormat::RESET
+
+Prefix: "{BOLD}[{GOLD}BroadcastACM{WHITE}]{GRAY}»{RESET} "
+
+BroadcastMenu:
+  title: "{BOLD}{BLUE}BroadcastACM"
+  content: "{YELLOW}Select your mode for the broadcast:"
+  button-message: "{BOLD}{RED}MESSAGE{LINE}{RESET}{BLACK}Click"
+  button-title: "{BOLD}{PURPLE}TITLE{LINE}{RESET}{BLACK}Click"
+  button-tip: "{BOLD}{AQUA}TIP{LINE}{RESET}{BLACK}Click"
+  button-popup: "{BOLD}{GREEN}POPUP{LINE}{RESET}{BLACK}Click"
+  button-motd: "{BOLD}{ORANGE}MOTD{LINE}{RESET}{BLACK}Click"
+  button-exit: "{BOLD}{DARK_RED}EXIT{LINE}{RESET}{BLACK}Close the menu"
+  
+BroadcastMotd:
+  title: "{BOLD}{BLUE}BroadcastACM{RED} MOTD"
+  content: "Write an ad in this box and press 'send'"
+  input: "Motd:"
+  
+BroadcastMessage:
+  title: "{BOLD}{BLUE}BroadcastACM{RED} MESSAGE"
+  content: "Write an ad in this box and press 'send'"
+  input: "Message:"
+  
+BroadcastTitle:
+  title: "{BOLD}{BLUE}BroadcastACM{RED} TITLE"
+  content: "Write an ad in this box and press 'send'"
+  input: "Title:"
+  
+BroadcastTip:
+  title: "{BOLD}{BLUE}BroadcastACM{RED} TIP"
+  content: "Write an ad in this box and press 'send'"
+  input: "Tip:"
+
+BroadcastPopup:
+  title: "{BOLD}{BLUE}BroadcastACM{RED} POPUP"
+  content: "Write an ad in this box and press 'send'"
+  input: "Popup:"
+  
+Messages:
+  # Use '{MOTD}' To display the name of the new motd for the server.
+  motd-successful: "{GREEN}The motd has been done successfully and you named it: {PINK}{MOTD}"
+  error-line: "{YELLOW}Complete the message to make your announcement."
+  no-permission: "{RED}You do not have permissions to run this command."

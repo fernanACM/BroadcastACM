@@ -1,0 +1,35 @@
+#   ____                               _                        _        _       ____   __  __ 
+#  | __ )   _ __    ___     __ _    __| |   ___    __ _   ___  | |_     / \     / ___| |  \/  |
+#  |  _ \  | '__|  / _ \   / _` |  / _` |  / __|  / _` | / __| | __|   / _ \   | |     | |\/| |
+#  | |_) | | |    | (_) | | (_| | | (_| | | (__  | (_| | \__ \ | |_   / ___ \  | |___  | |  | |
+#  |____/  |_|     \___/   \__,_|  \__,_|  \___|  \__,_| |___/  \__| /_/   \_\  \____| |_|  |_|
+#        by fernanACM
+
+# The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily.
+# Customize or disable the sound to the Broadcast, The page for the sounds is here: 
+# https://www.digminecraft.com/lists/sound_list_pe.php
+# Config version
+Config Version: 1.0.0
+# Use "true" or "false" to enable/disable broadcast
+Broadcast: true
+#The message production delay, default is '300' => 300 seconds
+Broadcast-delay: 300
+# Broadcast messages here, you can use the following 'keys' to improve the messages. 
+#                 [NOTE] 
+# Follow the Broadcast pattern to avoid possible errors.
+# =======(KEYS)=======
+# & => §
+# {LINE} => "\n"
+# {PLAYER} => Player's name
+# {PING} => Player ping
+# {ONLINE} => Connected players
+# {MAX_ONLINE} => Player slots
+# {WORLD_NAME} => World name
+# {TPS} => Server heartbeat
+Messages:
+  - "&eHey &a{PLAYER}&e, thanks for using BroadcastACM"
+  - "&eVisit my discord server: &bhttps://discord.gg/YyE9XFckqb"
+  - "&eRight now there are &a{ONLINE}&5/&c{MAX_ONLINE}&e people connected to the server"
+  - "&eHi &a{PLAYER}&e, your ping &d{PING} &eis amazing :o"
+  - "&eYou are in &6{WORLD_NAME}"
+  - "&eYour server has heartbeats of &a{TPS}"

@@ -1,0 +1,30 @@
+name: BroadcastACM
+main: fernanACM\BroadcastACM\Broadcast
+version: 1.0.0
+api: 4.0.0
+author: fernanACM
+description: The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily
+website: https://github.com/fernanACM
+
+permissions:
+  broadcastacm.cmd.acm:
+    default: op
+    description: use /broadcast | Open BroadcastForm
+  broadcastacm.help.acm:
+    default: op
+    description: use /broadcast help - Command list
+  broadcastacm.message.acm:
+    default: op
+    description: use /broadcast message
+  broadcastacm.title.acm:
+    default: op
+    description: use /broadcast title
+  broadcastacm.tip.acm:
+    default: op
+    description: use /broadcast tip
+  broadcastacm.popup.acm:
+    default: op
+    description: use /broadcast popup
+  broadcastacm.motd.acm:
+    default: op
+    description: use /broadcast motd

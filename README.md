@@ -16,7 +16,18 @@ Make the best announcements for your server without any difficulty when making t
 * [x] Sounds.
 * [x] Message customization.
 * [X] Commands.
+* [x] Keys in the form.
 ---
+
+### 🔑 Keys in the form
+**This is for the purpose of writing comfortably; Use the following keys for greater comfort:**
+```
+  - {LINE} => "\n" -> This counts as one space
+  - & => "§" -> Color code
+```
+**Example:**
+
+![Captura de pantalla 2022-05-16 190044](https://user-images.githubusercontent.com/83558341/168701084-b6ccabf2-2bf4-466e-b08d-84d4a78bf8ba.png)
 
 ### 💾 Config
 *broadcast.yml:*

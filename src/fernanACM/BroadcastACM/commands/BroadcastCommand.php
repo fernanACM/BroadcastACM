@@ -50,7 +50,7 @@ class BroadcastCommand extends BaseCommand{
          	   Broadcast::getInstance()->broadcastmenu->BroadcastMenu($sender);
                PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
         }else{
-            $prefix = Broadcast::getInstance()->getMessage($semder, "Prefix");
+            $prefix = Broadcast::getInstance()->getMessage($sender, "Prefix");
         	$sender->sendMessage($prefix . Broadcast::getInstance()->getMessage($sender, "Messages.no-permission"));
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
         }

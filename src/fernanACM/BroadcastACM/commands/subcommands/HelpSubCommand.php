@@ -32,11 +32,11 @@ class HelpSubCommand extends BaseSubCommand{
         	$sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm tip - To make a message");
         	$sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm popup - To make a message");
         	$sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm motd - To make a message");
-            PluginUtils::PlaySound($sender, "random.pop", 1, 4.5);
+                PluginUtils::PlaySound($sender, "random.pop", 1, 4.5);
         }else{
-        	$prefix = Broadcast::getInstance()->getMessage($semder, "Prefix");
+        	$prefix = Broadcast::getInstance()->getMessage($sender, "Prefix");
         	$sender->sendMessage($prefix . Broadcast::getInstance()->getMessage($sender, "Messages.no-permission"));
-            PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
-        }
+                PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
+             }
 	}
 }

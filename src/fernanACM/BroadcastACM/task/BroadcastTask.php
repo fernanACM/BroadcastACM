@@ -1,37 +1,73 @@
 <?php 
+    
+#      _       ____   __  __ 
+#     / \     / ___| |  \/  |
+#    / _ \   | |     | |\/| |
+#   / ___ \  | |___  | |  | |
+#  /_/   \_\  \____| |_|  |_|
+# The creator of this plugin was fernanACM.
+# https://github.com/fernanACM
 
 namespace fernanACM\BroadcastACM\task;
 
 use pocketmine\Server;
 use pocketmine\player\Player;
+
 use pocketmine\scheduler\Task;
 
-use fernanACM\BroadcastACM\Broadcast;
+use fernanACM\BroadcastACM\BroadcastACM;
 use fernanACM\BroadcastACM\utils\PluginUtils;
 
 class BroadcastTask extends Task{
 
+	/**
+	 * @return void
+	 */
 	public function onRun(): void{
-		# utils
-        foreach (Server::getInstance()->getOnlinePlayers() as $player){
+        foreach(Server::getInstance()->getOnlinePlayers() as $player){
             if($player instanceof Player){
-                $prefix = Broadcast::getInstance()->getMessage($player, "Prefix");
-		        $messagesACM = Broadcast::getInstance()->broadcastMS->get("Messages");
-		        # Messages
-		        $message = $messagesACM[array_rand($messagesACM)];
-		        $message = str_replace(["&"], ["§"], $message);
-		        $message = str_replace(["{LINE}"], ["\n"], $message);
-		        $message = str_replace(["{ONLINE}"], [count(Broadcast::getInstance()->getServer()->getOnlinePlayers())], $message);
-		        $message = str_replace(["{MAX_ONLINE}"], [Broadcast::getInstance()->getServer()->getMaxPlayers()], $message);
-		        $message = str_replace(["{PLAYER}"], [$player->getName()], $message);
-		        $message = str_replace(["{PING}"], [$player->getNetworkSession()->getPing()], $message);
-		        $message = str_replace(["{WORLD_NAME}"], [$player->getWorld()->getFolderName()], $message);
-		        $message = str_replace(["{TPS}"], [$player->getServer()->getTicksPerSecond()], $message);
-		        # Message BroadCast
-                if(Broadcast::getInstance()->broadcastMS->get("Broadcast", true)){
-                    $player->sendMessage($prefix . $message);
-                }
+                self::sendMode($player);
             }
         }
+	}
+
+	/**
+	 * @param Player $player
+	 * @param string $key
+	 * @return string
+	 */
+	private static function getMessage(Player $player, string $key): string {
+		$messageArray = (array) BroadcastACM::getInstance()->config->getNested($key, []);
+		if (empty($messageArray)) {
+			return '';
+		}
+		$randomMessageIndex = array_rand($messageArray);
+		$randomMessage = $messageArray[$randomMessageIndex];
+		return PluginUtils::codeUtil($player, $randomMessage);
+	}
+	
+	/**
+	 * @param Player $player
+	 * @return void
+	 */
+	private static function sendMode(Player $player): void{
+		$config = BroadcastACM::getInstance()->config;
+		$mode = $config->getNested("BroadcastMode.mode", "MESSAGE");
+		switch($mode){
+			case "TOAST":
+				$player->sendToastNotification(BroadcastACM::Prefix(), self::getMessage($player, "Messages"));
+				if($config->getNested("BroadcastMode.sound")){
+					PluginUtils::PlaySound($player, $config->getNested("BroadcastMode.soundName"), 1, 1);
+				}
+			break;
+	
+			case "MESSAGE":
+			default:
+				$player->sendMessage(BroadcastACM::Prefix() . self::getMessage($player, "Messages"));
+				if($config->getNested("BroadcastMode.sound")){
+					PluginUtils::PlaySound($player, $config->getNested("BroadcastMode.soundName"), 1, 1);
+				}
+			break;
+		}
 	}
 }

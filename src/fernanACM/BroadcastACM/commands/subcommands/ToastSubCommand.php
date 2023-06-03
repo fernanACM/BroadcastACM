@@ -21,11 +21,11 @@ use fernanACM\BroadcastACM\BroadcastACM;
 use fernanACM\BroadcastACM\utils\PermissionsUtils;
 use fernanACM\BroadcastACM\utils\PluginUtils;
 
-class TipSubCommand extends BaseSubCommand{
+class ToastSubCommand extends BaseSubCommand{
 
 	public function __construct(){
-        parent::__construct("tip", "", []);
-        $this->getPermission(PermissionsUtils::BROADCAST_TIP);
+        parent::__construct("title", "", []);
+        $this->getPermission(PermissionsUtils::BROADCAST_TOAST);
     }
 
 	/**
@@ -46,17 +46,24 @@ class TipSubCommand extends BaseSubCommand{
             $sender->sendMessage("Use this command in-game");
             return;
         }
-        if(!$sender->hasPermission(PermissionsUtils::BROADCAST_TIP)){
+        if(!$sender->hasPermission(PermissionsUtils::BROADCAST_TOAST)){
             $sender->sendMessage(BroadcastACM::Prefix(). BroadcastACM::getMessage($sender, "Messages.no-permission"));
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
             return;
         }
         if(!isset($args["text"])){
-            BroadcastACM::getInstance()->getBroadcastForm()->getBroadcastTip($sender);
+            BroadcastACM::getInstance()->getBroadcastForm()->getBroadcastToast($sender);
             PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
             return;
         }
-        BroadcastACM::getInstance()->getBroadcastManager()->sendTip($sender, $args["text"]);
+		$title = $args["text"];
+        $subTitle = "";
+		if(strpos($title, "{LINE}") !== false){
+            $parts = explode("{LINE}", $title);
+            $title = $parts[0];
+            $subTitle = $parts[1];
+        }
+        BroadcastACM::getInstance()->getBroadcastManager()->sendToast($sender, $title, $subTitle);
         PluginUtils::PlaySound($sender, "random.bowhit", 1, 1.6);
 	}
 }

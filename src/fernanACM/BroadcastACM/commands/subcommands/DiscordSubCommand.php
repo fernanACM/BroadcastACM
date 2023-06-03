@@ -15,24 +15,22 @@ use pocketmine\player\Player;
 use pocketmine\command\CommandSender;
 # Lib - Commando
 use CortexPE\Commando\BaseSubCommand;
-use CortexPE\Commando\args\TextArgument;
 # My files
 use fernanACM\BroadcastACM\BroadcastACM;
 use fernanACM\BroadcastACM\utils\PermissionsUtils;
 use fernanACM\BroadcastACM\utils\PluginUtils;
 
-class TipSubCommand extends BaseSubCommand{
+class DiscordSubCommand extends BaseSubCommand{
 
 	public function __construct(){
-        parent::__construct("tip", "", []);
-        $this->getPermission(PermissionsUtils::BROADCAST_TIP);
+        parent::__construct("discord", "", ["ab"]);
+        $this->getPermission(PermissionsUtils::BROADCAST_DISCORD);
     }
 
 	/**
      * @return void
      */
 	protected function prepare(): void{
-        $this->registerArgument(0, new TextArgument("text"));
 	}
 
 	/**
@@ -46,17 +44,12 @@ class TipSubCommand extends BaseSubCommand{
             $sender->sendMessage("Use this command in-game");
             return;
         }
-        if(!$sender->hasPermission(PermissionsUtils::BROADCAST_TIP)){
+        if(!$sender->hasPermission(PermissionsUtils::BROADCAST_DISCORD)){
             $sender->sendMessage(BroadcastACM::Prefix(). BroadcastACM::getMessage($sender, "Messages.no-permission"));
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
             return;
         }
-        if(!isset($args["text"])){
-            BroadcastACM::getInstance()->getBroadcastForm()->getBroadcastTip($sender);
-            PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
-            return;
-        }
-        BroadcastACM::getInstance()->getBroadcastManager()->sendTip($sender, $args["text"]);
-        PluginUtils::PlaySound($sender, "random.bowhit", 1, 1.6);
+        BroadcastACM::getInstance()->getBroadcastForm()->getBroadcastDiscord($sender);
+        PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
 	}
 }

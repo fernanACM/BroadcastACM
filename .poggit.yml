@@ -1,6 +1,7 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/fernanACM/BroadcastACM
 build-by-default: true
 branches:
+- PM5
 - PM4
 projects:
   BroadcastACM:

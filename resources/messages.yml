@@ -35,15 +35,15 @@ language-version: "1.0.0"
 # "{RESET}" => TextFormat::RESET
 
 BroadcastMenu:
-  title: "$l&9BroadcastACM"
+  title: "&l&9BroadcastACM"
   content: "&eSelect your mode for the broadcast:"
   button-message: "&l&cMESSAGE{LINE}&r&0Click"
   button-title: "&l&5TITLE{LINE}&r&0Click"
   button-tip: "&l&bTIP{LINE}&r&0Click"
   button-popup: "&l&aPOPUP{LINE}&r&0Click"
-  button-motd: "&l&6TOAST{LINE}&r&0Click"
+  button-toast: "&l&6TOAST{LINE}&r&0Click"
   button-actionbar: "&l&3ACTION BAR{LINE}&r&0Click"
-  button-dsicord: "&l&9DISCORD{LINE}&r&0Click"
+  button-discord: "&l&9DISCORD{LINE}&r&0Click"
   button-exit: "&l&4EXIT{LINE}&r&0Close the menu"
   
 BroadcastMessage:
@@ -87,7 +87,6 @@ BroadcastDiscord:
   
 Messages:
   # Use '{MOTD}' To display the name of the new motd for the server.
-  motd-successful: "{GREEN}The motd has been done successfully and you named it: {PINK}{MOTD}"
-  error-line: "{YELLOW}Complete the message to make your announcement."
+  error-line: "{RED}Complete the message to make your announcement."
   no-permission: "{RED}You do not have permissions to run this command."
-  no-url: "&cThere is no url of a WebHook presented in broadcast.yml"
+  no-url: "{RED}There is no url of a WebHook presented in broadcast.yml"

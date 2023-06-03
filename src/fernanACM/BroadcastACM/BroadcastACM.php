@@ -99,7 +99,7 @@ class BroadcastACM extends PluginBase{
             $this->getLogger()->notice("Your old configuration has been saved as config_old.yml and a new configuration file has been generated. Please update accordingly.");
         }
         # LANGUAGES
-        if((!$this->messages->exists("config-version")) || ($this->messages->get("language-version") != self::LANGUAGE_VERSION)){
+        if((!$this->messages->exists("language-version")) || ($this->messages->get("language-version") != self::LANGUAGE_VERSION)){
             rename($this->getDataFolder() . "messages.yml", $this->getDataFolder() . "messages_old.yml");
             $this->saveResource("messages.yml");
             $this->getLogger()->critical("Your configuration file is outdated.");

@@ -69,6 +69,7 @@ class PluginUtils {
        $replacements = [
             "{LINE}" => "\n§r",
             "{NAME}" => $player->getName(),
+            "{PLAYER}" => $player->getName(),
             "&" => "§",
             "{HEALTH}" => $player->getHealth(),
             "{MAX_HEALTH}" => $player->getMaxHealth(),

@@ -30,12 +30,12 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0])){
-				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
-                PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
+			if(empty($data[1])){
+				$player->sendMessage(Broadcast::Prefix().Broadcast::getMessage($player, "Messages.error-line"));
+				PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendMessage($player, $data[0]);
+			Broadcast::getInstance()->getBroadcastManager()->sendMessage($player, $data[1]);
             PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getMessage($player, "BroadcastMessage.title"));
@@ -55,16 +55,16 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0])){
+			if(empty($data[1])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendTitle($player, $data[0], $data[1]);
+			Broadcast::getInstance()->getBroadcastManager()->sendTitle($player, $data[1], $data[2]);
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastTitle.title"));
-		$form->addLabel(Broadcast::getInstance()->getMessage($player, "BroadcastTitle.title-content"));
+		$form->addLabel(Broadcast::getInstance()->getMessage($player, "BroadcastTitle.content"));
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastTitle.title-input"), "BroadcastACM");
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastTitle.subTitle-input"), "BroadcastACM");
 		$player->sendForm($form);
@@ -81,12 +81,12 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0])){
+			if(empty($data[1])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendTip($player, $data[0]);
+			Broadcast::getInstance()->getBroadcastManager()->sendTip($player, $data[1]);
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastTip.title"));
@@ -106,12 +106,12 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0])){
+			if(empty($data[1])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendPopup($player, $data[0]);
+			Broadcast::getInstance()->getBroadcastManager()->sendPopup($player, $data[1]);
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastPopup.title"));
@@ -131,16 +131,16 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0]) || empty($data[1])){
+			if(empty($data[1]) || empty($data[2])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendToast($player, $data[0], $data[1]);
+			Broadcast::getInstance()->getBroadcastManager()->sendToast($player, $data[1], $data[2]);
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastToast.title"));
-		$form->addLabel(Broadcast::getInstance()->getMessage($player, "BroadcastToast.title-content"));
+		$form->addLabel(Broadcast::getInstance()->getMessage($player, "BroadcastToast.content"));
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastToast.title-input"), "BroadcastACM");
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastToast.subTitle-input"), "BroadcastACM");
 		$player->sendForm($form);
@@ -157,12 +157,12 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0])){
+			if(empty($data[1])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendActionBar($player, $data[0]);
+			Broadcast::getInstance()->getBroadcastManager()->sendActionBar($player, $data[1]);
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastActionBar.title"));
@@ -182,12 +182,12 @@ class BroadcastForm{
 				return true;
 			}
 
-			if(empty($data[0]) || empty($data[1])){
+			if(empty($data[1]) || empty($data[1])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
 			}
-			Broadcast::getInstance()->getBroadcastManager()->sendDiscord($player, $data[0], $data[1], $data[2]);
+			Broadcast::getInstance()->getBroadcastManager()->sendDiscord($player, $data[1], $data[2], $data[3]);
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.title"));

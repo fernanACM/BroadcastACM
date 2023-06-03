@@ -8,6 +8,8 @@
 # The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily.
 # Here you can edit the general messages added by the plugin and others.
 
+# DO NOT TOUCH!
+language-version: "1.0.0"
 # ======(KEYS)======
 # "{LINE}" => "\n",
 # "{NAME}" => $player->getName(),
@@ -32,45 +34,60 @@
 # "{BOLD}" => TextFormat::BOLD,
 # "{RESET}" => TextFormat::RESET
 
-Prefix: "{BOLD}[{GOLD}BroadcastACM{WHITE}]{GRAY}»{RESET} "
-
 BroadcastMenu:
-  title: "{BOLD}{BLUE}BroadcastACM"
-  content: "{YELLOW}Select your mode for the broadcast:"
-  button-message: "{BOLD}{RED}MESSAGE{LINE}{RESET}{BLACK}Click"
-  button-title: "{BOLD}{PURPLE}TITLE{LINE}{RESET}{BLACK}Click"
-  button-tip: "{BOLD}{AQUA}TIP{LINE}{RESET}{BLACK}Click"
-  button-popup: "{BOLD}{GREEN}POPUP{LINE}{RESET}{BLACK}Click"
-  button-motd: "{BOLD}{ORANGE}MOTD{LINE}{RESET}{BLACK}Click"
-  button-exit: "{BOLD}{DARK_RED}EXIT{LINE}{RESET}{BLACK}Close the menu"
-  
-BroadcastMotd:
-  title: "{BOLD}{BLUE}BroadcastACM{RED} MOTD"
-  content: "Write an ad in this box and press 'send'"
-  input: "Motd:"
+  title: "$l&9BroadcastACM"
+  content: "&eSelect your mode for the broadcast:"
+  button-message: "&l&cMESSAGE{LINE}&r&0Click"
+  button-title: "&l&5TITLE{LINE}&r&0Click"
+  button-tip: "&l&bTIP{LINE}&r&0Click"
+  button-popup: "&l&aPOPUP{LINE}&r&0Click"
+  button-motd: "&l&6TOAST{LINE}&r&0Click"
+  button-actionbar: "&l&3ACTION BAR{LINE}&r&0Click"
+  button-dsicord: "&l&9DISCORD{LINE}&r&0Click"
+  button-exit: "&l&4EXIT{LINE}&r&0Close the menu"
   
 BroadcastMessage:
-  title: "{BOLD}{BLUE}BroadcastACM{RED} MESSAGE"
+  title: "&l&9BroadcastACM&c MESSAGE"
   content: "Write an ad in this box and press 'send'"
   input: "Message:"
   
 BroadcastTitle:
-  title: "{BOLD}{BLUE}BroadcastACM{RED} TITLE"
+  title: "&l&9BroadcastACM&c TITLE"
   content: "Write an ad in this box and press 'send'"
-  input: "Title:"
+  title-input: "&eTitle:"
+  subTitle-input: "&eSubTitle:"
   
 BroadcastTip:
-  title: "{BOLD}{BLUE}BroadcastACM{RED} TIP"
+  title: "&l&9BroadcastACM&c TIP"
   content: "Write an ad in this box and press 'send'"
-  input: "Tip:"
+  input: "&eTip:"
+
+BroadcastActionBar:
+  title: "&l&9BroadcastACM&c ACTIONBAR"
+  content: "Write an ad in this box and press 'send'"
+  input: "&eActionBar:"
 
 BroadcastPopup:
-  title: "{BOLD}{BLUE}BroadcastACM{RED} POPUP"
+  title: "&l&9BroadcastACM&c POPUP"
   content: "Write an ad in this box and press 'send'"
-  input: "Popup:"
+  input: "&ePopup:"
+
+BroadcastToast:
+  title: "&l&9BroadcastACM&c TOAST"
+  content: "Write an ad in this box and press 'send'"
+  title-input: "&eTitle:"
+  subTitle-input: "&eSubTitle:"
+
+BroadcastDiscord:
+  title: "&l&9BroadcastACM&c DISCORD"
+  content: "Write an ad in this box and press 'send'"
+  title-input: "&eTitle for the discord message:"
+  content-input: "&eContent for the discord message:"
+  author-input: "&eName of the author of the message:"
   
 Messages:
   # Use '{MOTD}' To display the name of the new motd for the server.
   motd-successful: "{GREEN}The motd has been done successfully and you named it: {PINK}{MOTD}"
   error-line: "{YELLOW}Complete the message to make your announcement."
   no-permission: "{RED}You do not have permissions to run this command."
+  no-url: "&cThere is no url of a WebHook presented in broadcast.yml"

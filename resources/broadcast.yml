@@ -8,12 +8,26 @@
 # The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily.
 # Customize or disable the sound to the Broadcast, The page for the sounds is here: 
 # https://www.digminecraft.com/lists/sound_list_pe.php
-# Config version
-Config Version: 1.0.0
+
+# DO NOT TOUCH!
+config-version: 1.0.0
+# PREFIX
+Prefix: "&l&f[&6BroadcastACM&f]&7»&r "
 # Use "true" or "false" to enable/disable broadcast
 Broadcast: true
-#The message production delay, default is '300' => 300 seconds
+# The message production delay, default is '300' => 300 seconds
 Broadcast-delay: 300
+# Broadcast message mode
+BroadcastMode:
+  # Available message modes:
+  # - MESSAGE => Player chat message 
+  # - TOAST => Player notification bar
+  mode: "MESSAGE"
+  # Sound list:
+  # https://www.digminecraft.com/lists/sound_list_pe.php
+  soundName: "random.pop2"
+  # Use "true" or "false" to enable/disable this option
+  sound: true
 # Broadcast messages here, you can use the following 'keys' to improve the messages. 
 #                 [NOTE] 
 # Follow the Broadcast pattern to avoid possible errors.
@@ -33,3 +47,10 @@ Messages:
   - "&eHi &a{PLAYER}&e, your ping &d{PING} &eis amazing :o"
   - "&eYou are in &6{WORLD_NAME}"
   - "&eYour server has heartbeats of &a{TPS}"
+
+# Discord section for the /broadcast discord command
+Discord:
+  # Enter your WebHook URL here:
+  url: ""
+  # WebHook Name
+  userName: "BroadcastACM | PMMP 5"

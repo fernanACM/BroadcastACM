@@ -23,8 +23,8 @@ use fernanACM\BroadcastACM\utils\PluginUtils;
 class DiscordSubCommand extends BaseSubCommand{
 
 	public function __construct(){
-        parent::__construct("discord", "", ["ab"]);
-        $this->getPermission(PermissionsUtils::BROADCAST_DISCORD);
+        parent::__construct("discord", "", ["dc"]);
+        $this->setPermission(PermissionsUtils::BROADCAST_DISCORD);
     }
 
 	/**

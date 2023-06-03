@@ -25,7 +25,7 @@ class PopupSubCommand extends BaseSubCommand{
 
 	public function __construct(){
         parent::__construct("popup", "", ["pup"]);
-        $this->getPermission(PermissionsUtils::BROADCAST_POPUP);
+        $this->setPermission(PermissionsUtils::BROADCAST_POPUP);
     }
 
 	/**

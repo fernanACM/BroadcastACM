@@ -25,7 +25,7 @@ class TitleSubCommand extends BaseSubCommand{
 
 	public function __construct(){
         parent::__construct("title", "", []);
-        $this->getPermission(PermissionsUtils::BROADCAST_TITLE);
+        $this->setPermission(PermissionsUtils::BROADCAST_TITLE);
     }
 
 	/**

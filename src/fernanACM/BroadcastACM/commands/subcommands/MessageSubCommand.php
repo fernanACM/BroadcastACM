@@ -25,7 +25,7 @@ class MessageSubCommand extends BaseSubCommand{
 
     public function __construct(){
         parent::__construct("message", "", ["msg"]);
-        $this->getPermission(PermissionsUtils::BROADCAST_MESSAGE);
+        $this->setPermission(PermissionsUtils::BROADCAST_MESSAGE);
     }
 
     /**

@@ -25,7 +25,7 @@ class ActionBarSubCommand extends BaseSubCommand{
 
 	public function __construct(){
         parent::__construct("actionbar", "", ["ab"]);
-        $this->getPermission(PermissionsUtils::BROADCAST_ACTIONBAR);
+        $this->setPermission(PermissionsUtils::BROADCAST_ACTIONBAR);
     }
 
 	/**

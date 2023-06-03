@@ -25,7 +25,7 @@ class TipSubCommand extends BaseSubCommand{
 
 	public function __construct(){
         parent::__construct("tip", "", []);
-        $this->getPermission(PermissionsUtils::BROADCAST_TIP);
+        $this->setPermission(PermissionsUtils::BROADCAST_TIP);
     }
 
 	/**

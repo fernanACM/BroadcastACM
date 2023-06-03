@@ -25,7 +25,7 @@ class ToastSubCommand extends BaseSubCommand{
 
 	public function __construct(){
         parent::__construct("title", "", []);
-        $this->getPermission(PermissionsUtils::BROADCAST_TOAST);
+        $this->setPermission(PermissionsUtils::BROADCAST_TOAST);
     }
 
 	/**

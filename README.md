@@ -3,7 +3,7 @@
 
 [![](https://poggit.pmmp.io/shield.api/BroadcastACM)](https://poggit.pmmp.io/p/BroadcastACM)
 
-**The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily.
+**The best announcer for PocketMine-MP 5.0 servers, make messages for your users very easily.
 Make the best announcements for your server without any difficulty when making them, only with UI it will serve you**
 
 ![Captura de pantalla 2022-05-16 164935](https://user-images.githubusercontent.com/83558341/168697137-e03c5834-ddc0-4b6c-93ee-50294508bfe6.png)

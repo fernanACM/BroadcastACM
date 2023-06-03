@@ -24,7 +24,7 @@ use fernanACM\BroadcastACM\utils\PluginUtils;
 class ToastSubCommand extends BaseSubCommand{
 
 	public function __construct(){
-        parent::__construct("title", "", []);
+        parent::__construct("toast", "", []);
         $this->setPermission(PermissionsUtils::BROADCAST_TOAST);
     }
 

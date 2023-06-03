@@ -59,7 +59,6 @@ class BroadcastCommand extends BaseCommand{
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void{
     	if(!$sender instanceof Player){
             $sender->sendMessage("Use this command in-game");
-            PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
             return;
         }
         if(!$sender->hasPermission(PermissionsUtils::BROADCAST_CMD)){

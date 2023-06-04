@@ -32,7 +32,7 @@ class MessageSubCommand extends BaseSubCommand{
      * @return void
      */
 	protected function prepare(): void{
-        $this->registerArgument(0, new TextArgument("text"));
+        $this->registerArgument(0, new TextArgument("text", true));
 	}
 
     /**
@@ -56,7 +56,7 @@ class MessageSubCommand extends BaseSubCommand{
             PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
             return;
         }
-        BroadcastACM::getInstance()->getBroadcastManager()->sendMessage($sender, $args["text"]);
+        BroadcastACM::getInstance()->getBroadcastManager()->sendMessage($sender, PluginUtils::codeUtil($sender, $args["text"]));
         PluginUtils::PlaySound($sender, "random.bowhit", 1, 1.6);
 	}
 }

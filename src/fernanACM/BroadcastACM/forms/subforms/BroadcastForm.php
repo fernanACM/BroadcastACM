@@ -175,14 +175,14 @@ class BroadcastForm{
 	 * @param Player $player
 	 * @return void
 	 */
-	public function getBroadcastDiscord(Player $player): void{
+	/*public function getBroadcastDiscord(Player $player): void{
 		$form = new CustomForm(function(Player $player, $data){
 		    if(is_null($data)){
 				PluginUtils::PlaySound($player, "random.pop2", 1, 8.1);
 				return true;
 			}
 
-			if(empty($data[1]) || empty($data[1])){
+			if(empty($data[1]) || empty($data[2])){
 				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player,"Messages.error-line"));
                 PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
 				return;
@@ -196,5 +196,5 @@ class BroadcastForm{
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.content-input"), "BroadcastACM");
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.author-input"), "BroadcastACM", $player->getName());
 		$player->sendForm($form);
-	}
+	}*/
 }

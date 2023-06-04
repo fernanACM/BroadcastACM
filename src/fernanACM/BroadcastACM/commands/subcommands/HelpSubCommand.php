@@ -49,15 +49,15 @@ class HelpSubCommand extends BaseSubCommand{
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
             return;
         }
-        $sender->sendMessage("§b»§eBROADCASTACM§b«");
-        $sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm help - To see the list of commands");
-        $sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm message - To make a message");
-        $sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm title - To make a message");
-    	$sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm tip - To make a message");
-    	$sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm popup - To make a message");
-        $sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm toast - To make a message");
-        $sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm actionbar - To make a message");
-        $sender->sendMessage("- §l§eUse§a»§r §7/broadcastacm discord - To make a message");
+        $sender->sendMessage("§l§b»§eBROADCASTACM§b«");
+        $sender->sendMessage("§7- /broadcastacm help - To see the list of commands");
+        $sender->sendMessage("§7- /broadcastacm message - To make a message");
+        $sender->sendMessage("§7- /broadcastacm title - To make a message");
+    	$sender->sendMessage("§7- /broadcastacm tip - To make a message");
+    	$sender->sendMessage("§7- /broadcastacm popup - To make a message");
+        $sender->sendMessage("§7- /broadcastacm toast - To make a message");
+        $sender->sendMessage("§7- /broadcastacm actionbar - To make a message");
+        $sender->sendMessage("§7- /broadcastacm discord - To make a message");
         PluginUtils::PlaySound($sender, "random.pop", 1, 4.5);
 	}
 }

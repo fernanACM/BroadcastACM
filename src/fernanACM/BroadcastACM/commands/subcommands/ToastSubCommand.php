@@ -32,7 +32,7 @@ class ToastSubCommand extends BaseSubCommand{
      * @return void
      */
 	protected function prepare(): void{
-        $this->registerArgument(0, new TextArgument("text"));
+        $this->registerArgument(0, new TextArgument("text", true));
 	}
 
 	/**
@@ -58,12 +58,12 @@ class ToastSubCommand extends BaseSubCommand{
         }
 		$title = $args["text"];
         $subTitle = "";
-		if(strpos($title, "{LINE}") !== false){
-            $parts = explode("{LINE}", $title);
+		if(strpos($title, "{line}") !== false){
+            $parts = explode("{line}", $title);
             $title = $parts[0];
             $subTitle = $parts[1];
         }
-        BroadcastACM::getInstance()->getBroadcastManager()->sendToast($sender, $title, $subTitle);
+        BroadcastACM::getInstance()->getBroadcastManager()->sendToast($sender, PluginUtils::codeUtil($sender, $title), PluginUtils::codeUtil($sender, $subTitle));
         PluginUtils::PlaySound($sender, "random.bowhit", 1, 1.6);
 	}
 }

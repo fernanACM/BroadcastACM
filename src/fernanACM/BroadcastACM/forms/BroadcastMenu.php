@@ -90,7 +90,7 @@ class BroadcastMenu{
 					PluginUtils::PlaySound($player, "random.bow", 1, 1.6);
 				break;
 
-				case 6: // DISCORD
+				/*case 6: // DISCORD
 					if(!$player->hasPermission(PermissionsUtils::BROADCAST_DISCORD)){
 						$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player, "Messages.no-permission"));
 						PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
@@ -98,9 +98,9 @@ class BroadcastMenu{
 					}
 					Broadcast::getInstance()->getBroadcastForm()->getBroadcastDiscord($player);
 					PluginUtils::PlaySound($player, "random.bow", 1, 1.6);
-				break;
+				break;*/
 
-				case 7: // CLOSE
+				case 6: // CLOSE
 					PluginUtils::PlaySound($player, "random.screenshot", 1, 1.7);
 				break;
 			}
@@ -113,7 +113,7 @@ class BroadcastMenu{
 		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-popup"),1,"https://i.imgur.com/08UVTNH.png");
 		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-actionbar"),1,"https://i.imgur.com/bMtGh7U.png");
 		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-toast"),1,"https://i.imgur.com/fL7SNpP.png");
-		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-discord"),1,"https://i.imgur.com/PAwhnh8.png");
+		//$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-discord"),1,"https://i.imgur.com/PAwhnh8.png");
 		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-exit"),0,"textures/ui/cancel");
 		$player->sendForm($form);
 	}

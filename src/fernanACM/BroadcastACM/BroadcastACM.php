@@ -25,6 +25,8 @@ use muqsit\simplepackethandler\SimplePacketHandler;
 use CortexPE\Commando\BaseCommand;
 use CortexPE\Commando\PacketHooker;
 
+use CortexPE\DiscordWebhookAPI\Webhook;
+
 use DaPigGuy\libPiggyUpdateChecker\libPiggyUpdateChecker;
 # My files
 use fernanACM\BroadcastACM\commands\BroadcastCommand;
@@ -56,8 +58,8 @@ class BroadcastACM extends PluginBase{
     private BroadcastManager $manager;
 
     # CheckConfig
-    public const CONFIG_VERSION = "1.0.0";
-    public const LANGUAGE_VERSION = "1.0.0";
+    public const CONFIG_VERSION = "2.0.0";
+    public const LANGUAGE_VERSION = "2.0.0";
 
     /**
      * @return void
@@ -83,6 +85,7 @@ class BroadcastACM extends PluginBase{
     public function loadFiles(): void{
         # Config files
         $this->saveResource("broadcast.yml");
+        $this->saveResource("messages.yml");
         $this->config = new Config($this->getDataFolder() . "broadcast.yml");
         $this->messages = new Config($this->getDataFolder() . "messages.yml");
     }
@@ -93,10 +96,10 @@ class BroadcastACM extends PluginBase{
     public function loadCheck(): void{
         # CONFIG
         if((!$this->config->exists("config-version")) || ($this->config->get("config-version") != self::CONFIG_VERSION)){
-            rename($this->getDataFolder() . "config.yml", $this->getDataFolder() . "config_old.yml");
-            $this->saveResource("config.yml");
+            rename($this->getDataFolder() . "broadcast.yml", $this->getDataFolder() . "broadcast_old.yml");
+            $this->saveResource("broadcast.yml");
             $this->getLogger()->critical("Your configuration file is outdated.");
-            $this->getLogger()->notice("Your old configuration has been saved as config_old.yml and a new configuration file has been generated. Please update accordingly.");
+            $this->getLogger()->notice("Your old configuration has been saved as broadcast_old.yml and a new configuration file has been generated. Please update accordingly.");
         }
         # LANGUAGES
         if((!$this->messages->exists("language-version")) || ($this->messages->get("language-version") != self::LANGUAGE_VERSION)){
@@ -115,6 +118,7 @@ class BroadcastACM extends PluginBase{
             "FormsUI" => FormsUI::class,
             "SimplePacketHandler" => SimplePacketHandler::class,
             "Commando" => BaseCommand::class,
+            "DiscordWebhookAPI" => Webhook::class,
             "libPiggyUpdateChecker" => libPiggyUpdateChecker::class
             ] as $virion => $class
         ){

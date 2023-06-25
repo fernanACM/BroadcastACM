@@ -9,7 +9,7 @@
 # Here you can edit the general messages added by the plugin and others.
 
 # DO NOT TOUCH!
-language-version: "1.0.0"
+language-version: "2.0.0"
 # ======(KEYS)======
 # "{LINE}" => "\n",
 # "{NAME}" => $player->getName(),
@@ -86,7 +86,7 @@ BroadcastDiscord:
   author-input: "&eName of the author of the message:"
   
 Messages:
-  # Use '{MOTD}' To display the name of the new motd for the server.
   error-line: "{RED}Complete the message to make your announcement."
   no-permission: "{RED}You do not have permissions to run this command."
   no-url: "{RED}There is no url of a WebHook presented in broadcast.yml"
+  sent-successfully: "{GREEN}The message has been sent successfully!"

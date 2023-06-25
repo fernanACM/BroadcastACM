@@ -175,11 +175,17 @@ class BroadcastForm{
 	 * @param Player $player
 	 * @return void
 	 */
-	/*public function getBroadcastDiscord(Player $player): void{
+	public function getBroadcastDiscord(Player $player): void{
 		$form = new CustomForm(function(Player $player, $data){
 		    if(is_null($data)){
 				PluginUtils::PlaySound($player, "random.pop2", 1, 8.1);
 				return true;
+			}
+
+			if(empty(Broadcast::getInstance()->config->getNested("Discord.url"))){
+				$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player, "Messages.no-url"));
+				PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
+				return;
 			}
 
 			if(empty($data[1]) || empty($data[2])){
@@ -188,6 +194,7 @@ class BroadcastForm{
 				return;
 			}
 			Broadcast::getInstance()->getBroadcastManager()->sendDiscord($player, $data[1], $data[2], $data[3]);
+			$player->sendMessage(Broadcast::Prefix(). Broadcast::getMessage($player, "Messages.sent-successfully"));
 			PluginUtils::PlaySound($player, "random.bowhit", 1, 1.6);
 		});
 		$form->setTitle(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.title"));
@@ -196,5 +203,5 @@ class BroadcastForm{
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.content-input"), "BroadcastACM");
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.author-input"), "BroadcastACM", $player->getName());
 		$player->sendForm($form);
-	}*/
+	}
 }

@@ -22,7 +22,7 @@ use fernanACM\BroadcastACM\commands\subcommands\TitleSubCommand;
 use fernanACM\BroadcastACM\commands\subcommands\TipSubCommand;
 use fernanACM\BroadcastACM\commands\subcommands\PopupSubCommand;
 use fernanACM\BroadcastACM\commands\subcommands\ActionBarSubCommand;
-//use fernanACM\BroadcastACM\commands\subcommands\DiscordSubCommand;
+use fernanACM\BroadcastACM\commands\subcommands\DiscordSubCommand;
 use fernanACM\BroadcastACM\commands\subcommands\ToastSubCommand;
 # My files
 use fernanACM\BroadcastACM\BroadcastACM;
@@ -41,7 +41,7 @@ class BroadcastCommand extends BaseCommand{
      */
 	protected function prepare(): void{
         $this->registerSubCommand(new ActionBarSubCommand);
-        //$this->registerSubCommand(new DiscordSubCommand);
+        $this->registerSubCommand(new DiscordSubCommand);
         $this->registerSubCommand(new HelpSubCommand);
         $this->registerSubCommand(new MessageSubCommand);
         $this->registerSubCommand(new PopupSubCommand);

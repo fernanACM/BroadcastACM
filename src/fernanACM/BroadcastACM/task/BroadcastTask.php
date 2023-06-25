@@ -10,6 +10,9 @@
 
 namespace fernanACM\BroadcastACM\task;
 
+use CortexPE\DiscordWebhookAPI\Embed;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
 use pocketmine\Server;
 use pocketmine\player\Player;
 
@@ -29,6 +32,7 @@ class BroadcastTask extends Task{
                 self::sendMode($player);
             }
         }
+		self::sendDiscordMessage();
 	}
 
 	/**
@@ -38,7 +42,7 @@ class BroadcastTask extends Task{
 	 */
 	private static function getMessage(Player $player, string $key): string {
 		$messageArray = (array) BroadcastACM::getInstance()->config->getNested($key, []);
-		if (empty($messageArray)) {
+		if(empty($messageArray)){
 			return '';
 		}
 		$randomMessageIndex = array_rand($messageArray);
@@ -70,4 +74,41 @@ class BroadcastTask extends Task{
 			break;
 		}
 	}
+
+	/**
+     * @param string $title
+     * @param string $content
+     * @param string $author
+     * @return void
+     */
+    private static function sendDiscord(string $title, string $content, string $author = ""): void{
+        $config = BroadcastACM::getInstance()->config;
+        if(empty($config->getNested("Discord.url"))){
+            return;
+        }
+        $webhook = new Webhook($config->getNested("Discord.url"));
+        $msg = new Message();
+        $embed = new Embed();
+        $msg->setUsername($config->getNested("Discord.userName"));
+        $msg->setAvatarURL($config->getNested("Discord.avatarURL"));
+        $embed->setTitle("**".$title."**");
+        $embed->setDescription($content);
+        $embed->setColor((int)$config->getNested("Discord.color"));
+        $embed->setFooter($author);
+        $msg->addEmbed($embed);
+        $webhook->send($msg);
+    }
+
+	/**
+	 * @return void
+	 */
+	private static function sendDiscordMessage(): void{
+		$config = BroadcastACM::getInstance()->config;
+		$title = $config->getNested("Discord.Broadcast.title");
+		$messages = $config->getNested("Discord.Broadcast.messages");
+		if($config->getNested("Discord.Broadcast.enabled")){
+			$randomMessage = $messages[array_rand($messages)];
+			self::sendDiscord($title, $randomMessage);
+		}
+	}	
 }

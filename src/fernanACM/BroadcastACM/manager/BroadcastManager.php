@@ -13,9 +13,9 @@ namespace fernanACM\BroadcastACM\manager;
 use pocketmine\Server;
 use pocketmine\player\Player;
 
-//use CortexPE\DiscordWebhookAPI\Embed;
-//use CortexPE\DiscordWebhookAPI\Message;
-//use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
 
 use fernanACM\BroadcastACM\BroadcastACM;
 use fernanACM\BroadcastACM\utils\PluginUtils;
@@ -93,7 +93,7 @@ class BroadcastManager{
      * @param string $author
      * @return void
      */
-    /*public function sendDiscord(Player $player, string $title, string $content, string $author = ""): void{
+    public function sendDiscord(Player $player, string $title, string $content, string $author = ""): void{
         $config = BroadcastACM::getInstance()->config;
         if(empty($config->getNested("Discord.url"))){
             $player->sendMessage(BroadcastACM::Prefix(). BroadcastACM::getMessage($player, "Messages.no-url"));
@@ -104,10 +104,12 @@ class BroadcastManager{
         $msg = new Message();
         $embed = new Embed();
         $msg->setUsername($config->getNested("Discord.userName"));
-        $embed->setTitle($title);
-        $embed->setDescription(PluginUtils::codeUtil($player, $content));
-        $embed->setAuthor($author);
+        $msg->setAvatarURL($config->getNested("Discord.avatarURL"));
+        $embed->setTitle("**".$title."**");
+        $embed->setDescription(str_replace("{line}", "\n", PluginUtils::codeUtil($player, $content)));
+        $embed->setColor((int)$config->getNested("Discord.color"));
+        $embed->setFooter($author);
         $msg->addEmbed($embed);
         $webhook->send($msg);
-    }*/
+    }
 }

@@ -10,7 +10,7 @@
 # https://www.digminecraft.com/lists/sound_list_pe.php
 
 # DO NOT TOUCH!
-config-version: 1.0.0
+config-version: "2.0.0"
 # PREFIX
 Prefix: "&l&f[&6BroadcastACM&f]&7»&r "
 # Use "true" or "false" to enable/disable broadcast
@@ -47,3 +47,27 @@ Messages:
   - "&eHi &a{PLAYER}&e, your ping &d{PING} &eis amazing :o"
   - "&eYou are in &6{WORLD_NAME}"
   - "&eYour server has heartbeats of &a{TPS}"
+
+# Discord
+Discord:
+  # Here is the Discord webhook URL:
+  url: ""
+  # Webhook name:
+  userName: "BroadcastACM"
+  # Webhook avatar:
+  avatarURL: "https://i.imgur.com/PAwhnh8.png"
+  # Color: https://gist.github.com/thomasbnt/b6f455e2c7d743b796917fa3c205f812
+  color: "16776960"
+  # Discord broadcast
+  Broadcast:
+    # Use "true" or "false" to enable/disable this option
+    enabled: false
+    # Title for broadcast
+    title: "BroadcastACM"
+    # Content for broadcast
+    # Check: https://support.discord.com/hc/es/articles/210298617-Markdown-Text-101-formato-de-chat-negrita-cursiva-subrayado-
+    messages:
+      - "Hey, thanks for using BroadcastACM"
+      - "Visit my discord server: https://discord.gg/YyE9XFckqb"
+      - "Don't forget to check my github: https://github.com/fernanACM/"
+      - "Hi! Are you new to BroadcastACM? Check the WIKI of the plugin: https://github.com/fernanACM/BroadcastACM/wiki"

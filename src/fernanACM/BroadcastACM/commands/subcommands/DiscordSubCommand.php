@@ -15,6 +15,7 @@ use pocketmine\player\Player;
 use pocketmine\command\CommandSender;
 # Lib - Commando
 use CortexPE\Commando\BaseSubCommand;
+use CortexPE\Commando\args\TextArgument;
 # My files
 use fernanACM\BroadcastACM\BroadcastACM;
 use fernanACM\BroadcastACM\utils\PermissionsUtils;
@@ -31,6 +32,7 @@ class DiscordSubCommand extends BaseSubCommand{
      * @return void
      */
 	protected function prepare(): void{
+        $this->registerArgument(0, new TextArgument("text", true));
 	}
 
 	/**
@@ -49,7 +51,25 @@ class DiscordSubCommand extends BaseSubCommand{
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
             return;
         }
-        BroadcastACM::getInstance()->getBroadcastForm()->getBroadcastDiscord($sender);
-        PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
+        if(!isset($args["text"])){
+            BroadcastACM::getInstance()->getBroadcastForm()->getBroadcastDiscord($sender);
+            PluginUtils::PlaySound($sender, "random.pop2", 1, 4.5);
+            return;
+        }
+        if(empty(BroadcastACM::getInstance()->config->getNested("Discord.url"))){
+            $sender->sendMessage(BroadcastACM::Prefix(). BroadcastACM::getMessage($sender, "Messages.no-url"));
+            PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
+            return;
+        }
+        $title = $args["text"];
+        $subTitle = "";
+		if(strpos($title, "{line}") !== false){
+            $parts = explode("{line}", $title);
+            $title = $parts[0];
+            $subTitle = $parts[1];
+        }
+        BroadcastACM::getInstance()->getBroadcastManager()->sendDiscord($sender, PluginUtils::codeUtil($sender, $title), PluginUtils::codeUtil($sender, $subTitle), $sender->getName());
+        $sender->sendMessage(BroadcastACM::Prefix(). BroadcastACM::getMessage($sender, "Messages.sent-successfully"));
+        PluginUtils::PlaySound($sender, "random.bowhit", 1, 1.6);
 	}
 }

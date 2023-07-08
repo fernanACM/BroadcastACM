@@ -10,13 +10,17 @@ Make the best announcements for your server without any difficulty when making t
 
 <a href="https://discord.gg/YyE9XFckqb"><img src="https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
 
+### 🌍 Wiki
+* Check our plugin [wiki](https://github.com/fernanACM/BroadcastACM/wiki) for features and secrets in the...
+
 ### 💡 Implementations
-* [x] Images > *To load the images, use [FormImagesFIX](https://poggit.pmmp.io/r/146450/FormImagesFix_dev-14.phar)*
+* [x] Images > *To load the images, use [FormImagesFIX](https://poggit.pmmp.io/r/210344/FormImagesFix_dev-16.phar)*
 * [X] Configuration
 * [x] Sounds.
 * [x] Message customization.
 * [X] Commands.
 * [x] Keys in the form.
+* [x] Discord system
 ---
 
 ### 🔑 Keys in the form
@@ -51,7 +55,7 @@ Make the best announcements for your server without any difficulty when making t
 # https://www.digminecraft.com/lists/sound_list_pe.php
 
 # DO NOT TOUCH!
-config-version: 1.0.0
+config-version: "2.0.0"
 # PREFIX
 Prefix: "&l&f[&6BroadcastACM&f]&7»&r "
 # Use "true" or "false" to enable/disable broadcast
@@ -88,6 +92,30 @@ Messages:
   - "&eHi &a{PLAYER}&e, your ping &d{PING} &eis amazing :o"
   - "&eYou are in &6{WORLD_NAME}"
   - "&eYour server has heartbeats of &a{TPS}"
+
+# Discord
+Discord:
+  # Here is the Discord webhook URL:
+  url: ""
+  # Webhook name:
+  userName: "BroadcastACM"
+  # Webhook avatar:
+  avatarURL: "https://i.imgur.com/PAwhnh8.png"
+  # Color: https://gist.github.com/thomasbnt/b6f455e2c7d743b796917fa3c205f812
+  color: "16776960"
+  # Discord broadcast
+  Broadcast:
+    # Use "true" or "false" to enable/disable this option
+    enabled: false
+    # Title for broadcast
+    title: "BroadcastACM"
+    # Content for broadcast
+    # Check: https://support.discord.com/hc/es/articles/210298617-Markdown-Text-101-formato-de-chat-negrita-cursiva-subrayado-
+    messages:
+      - "Hey, thanks for using BroadcastACM"
+      - "Visit my discord server: https://discord.gg/YyE9XFckqb"
+      - "Don't forget to check my github: https://github.com/fernanACM/"
+      - "Hi! Are you new to BroadcastACM? Check the WIKI of the plugin: https://github.com/fernanACM/BroadcastACM/wiki"
 ```
 ### 🕹 Commands
 | Command | Description |
@@ -100,6 +128,7 @@ Messages:
 | ```/broadcastacm actionbar``` | ActionBar |
 | ```/broadcastacm popup``` | Popup |
 | ```/broadcastacm message``` | Message |
+| ```/broadcastacm discord``` | Discord |
 
 ### 🔒 Permissions
 | Permission | Description |
@@ -112,6 +141,7 @@ Messages:
 | ```broadcastacm.actionbar.acm``` | ActionBar |
 | ```broadcastacm.toast.acm``` | Toast |
 | ```broadcastacm.popup.acm``` | Popup |
+| ```broadcastacm.discord.acm``` | Discord |
 
 ### 📞 Contact 
 
@@ -128,6 +158,7 @@ Messages:
 |---------|--------|-----|
 | Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |
 | CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |
+| CortexPE | [CortexPE](https://github.com/CortexPE) | [DiscordWebhookAPI](https://github.com/CortexPE/DiscordWebhookAPI/tree/PM4/) |
 | Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |
 | DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |
 ****

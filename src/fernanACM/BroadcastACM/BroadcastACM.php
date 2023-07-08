@@ -35,6 +35,7 @@ use fernanACM\BroadcastACM\task\BroadcastTask;
 # Forms
 use fernanACM\BroadcastACM\forms\BroadcastMenu;
 use fernanACM\BroadcastACM\forms\subforms\BroadcastForm;
+# Manager
 use fernanACM\BroadcastACM\manager\BroadcastManager;
 
 class BroadcastACM extends PluginBase{
@@ -48,15 +49,6 @@ class BroadcastACM extends PluginBase{
     /** @var BroadcastACM $instance */
 	private static BroadcastACM $instance;
 
-    /** @var BroadcastMenu $menu */
-    private BroadcastMenu $menu;
-
-    /** @var BroadcastForm $form */
-    private BroadcastForm $form;
-
-    /** @var BroadcastManager $manager */
-    private BroadcastManager $manager;
-
     # CheckConfig
     public const CONFIG_VERSION = "2.0.0";
     public const LANGUAGE_VERSION = "2.0.0";
@@ -65,7 +57,7 @@ class BroadcastACM extends PluginBase{
      * @return void
      */
     public function onLoad(): void{
-        $this->loadVars();
+        self::$instance = $this;
         $this->loadFiles();
     }
 
@@ -82,7 +74,7 @@ class BroadcastACM extends PluginBase{
     /**
      * @return void
      */
-    public function loadFiles(): void{
+    private function loadFiles(): void{
         # Config files
         $this->saveResource("broadcast.yml");
         $this->saveResource("messages.yml");
@@ -93,7 +85,7 @@ class BroadcastACM extends PluginBase{
     /**
      * @return void
      */
-    public function loadCheck(): void{
+    private function loadCheck(): void{
         # CONFIG
         if((!$this->config->exists("config-version")) || ($this->config->get("config-version") != self::CONFIG_VERSION)){
             rename($this->getDataFolder() . "broadcast.yml", $this->getDataFolder() . "broadcast_old.yml");
@@ -113,7 +105,7 @@ class BroadcastACM extends PluginBase{
     /**
      * @return void
      */
-    public function loadVirions(): void{
+    private function loadVirions(): void{
         foreach([
             "FormsUI" => FormsUI::class,
             "SimplePacketHandler" => SimplePacketHandler::class,
@@ -139,7 +131,7 @@ class BroadcastACM extends PluginBase{
     /**
      * @return void
      */
-    public function loadCommands(): void{
+    private function loadCommands(): void{
         Server::getInstance()->getCommandMap()->register("broadcastacm", new BroadcastCommand);
     }
 
@@ -153,16 +145,6 @@ class BroadcastACM extends PluginBase{
     }
 
     /**
-     * @return void
-     */
-    public function loadVars(): void{
-        self::$instance = $this;
-        $this->menu = new BroadcastMenu();
-        $this->form = new BroadcastForm();
-        $this->manager = new BroadcastManager();
-    }
-
-    /**
      * @return BroadcastACM
      */
     public static function getInstance(): BroadcastACM{
@@ -173,21 +155,21 @@ class BroadcastACM extends PluginBase{
      * @return BroadcastMenu
      */
     public function getBroadcastMenu(): BroadcastMenu{
-        return $this->menu;
+        return BroadcastMenu::getInstance();
     }
     
     /**
      * @return BroadcastManager
      */
     public function getBroadcastManager(): BroadcastManager{
-        return $this->manager;
+        return BroadcastManager::getInstance();
     }
 
     /**
      * @return BroadcastForm
      */
     public function getBroadcastForm(): BroadcastForm{
-        return $this->form;
+        return BroadcastForm::getInstance();
     }
 
 	/**

@@ -19,6 +19,12 @@ use fernanACM\BroadcastACM\utils\PluginUtils;
 
 class BroadcastForm{
 
+	/** @var null|BroadcastForm $instance */
+	private static ?BroadcastForm $instance = null;
+
+	private function __construct(){
+	}
+
 	/**
 	 * @param Player $player
 	 * @return void
@@ -203,5 +209,13 @@ class BroadcastForm{
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.content-input"), "BroadcastACM");
 		$form->addInput(Broadcast::getInstance()->getMessage($player, "BroadcastDiscord.author-input"), "BroadcastACM", $player->getName());
 		$player->sendForm($form);
+	}
+
+	/**
+	 * @return self
+	 */
+	public static function getInstance(): self{
+		if(is_null(self::$instance)) self::$instance = new self();
+		return self::$instance;
 	}
 }

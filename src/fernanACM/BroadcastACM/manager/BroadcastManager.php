@@ -22,6 +22,12 @@ use fernanACM\BroadcastACM\utils\PluginUtils;
 
 class BroadcastManager{
 
+    /** @var null|BroadcastManager $instance */
+    private static ?BroadcastManager $instance = null;
+
+    private function __construct(){
+    }
+
     /**
      * @param Player $player
      * @param string $text
@@ -111,5 +117,10 @@ class BroadcastManager{
         $embed->setFooter($author);
         $msg->addEmbed($embed);
         $webhook->send($msg);
+    }
+
+    public static function getInstance(): self{
+        if(is_null(self::$instance)) self::$instance = new self();
+        return self::$instance;
     }
 }

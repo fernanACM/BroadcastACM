@@ -20,6 +20,12 @@ use fernanACM\BroadcastACM\utils\PluginUtils;
 
 class BroadcastMenu{
 
+	/** @var null|BroadcastMenu $instance */
+	private static ?BroadcastMenu $instance = null;
+
+	private function __construct(){
+	}
+
 	/**
 	 * @param Player $player
 	 * @return void
@@ -116,5 +122,13 @@ class BroadcastMenu{
 		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-discord"),1,"https://i.imgur.com/PAwhnh8.png");
 		$form->addButton(Broadcast::getMessage($player, "BroadcastMenu.button-exit"),0,"textures/ui/cancel");
 		$player->sendForm($form);
+	}
+
+	/**
+	 * @return self
+	 */
+	public static function getInstance(): self{
+		if(is_null(self::$instance)) self::$instance = new self();
+		return self::$instance;
 	}
 }

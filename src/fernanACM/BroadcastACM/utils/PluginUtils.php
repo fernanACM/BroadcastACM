@@ -20,7 +20,7 @@ use pocketmine\network\mcpe\NetworkBroadcastUtils;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 use pocketmine\network\mcpe\protocol\OnScreenTextureAnimationPacket;
 
-class PluginUtils {
+class PluginUtils{
 
     /**
      * @param Player $player

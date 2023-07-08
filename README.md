@@ -143,6 +143,9 @@ Discord:
 | ```broadcastacm.popup.acm``` | Popup |
 | ```broadcastacm.discord.acm``` | Discord |
 
+### 📢 Report bug
+* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/BroadcastACM/issues)
+
 ### 📞 Contact 
 
 | Redes | Tag | Link |
